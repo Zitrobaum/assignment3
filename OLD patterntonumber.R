@@ -11,15 +11,18 @@
      #input "pattern" and length = "" = null
      #since strsplit puts new values into a list we use "unlist" to get rid of it
      #ref: https://stat.ethz.ch/R-manual/R-devel/library/base/html/strsplit.html
+     # unlist: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/unlist
      patternx <- unlist(strsplit(pattern, ""))
 
      #replace values of characters "A","C","G","T" to corresponding numeric values "0","1","2","3"
+     #replace: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/replace
      patternx <- replace(patternx,patternx=="A",0)
      patternx <- replace(patternx,patternx=="C",1)
      patternx <- replace(patternx,patternx=="G",2)
      patternx <- replace(patternx,patternx=="T",3)
        
      #since those are still stored as characters, change them to numeric using as.numeric
+     #as.numeric: https://www.rdocumentation.org/packages/base/versions/3.6.0/topics/numeric
          patternx <- as.numeric(patternx)
        
          #multiply numbers according to their weight in base 4
